@@ -1,0 +1,1123 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* =========================
+   STEM TUTOR — AI SCIENCE UI
+   ========================= */
+
+:root {
+    color-scheme: dark;
+    --background: #080d18;
+    --background-soft: #0c1424;
+    --surface: rgba(17, 27, 46, 0.88);
+    --surface-solid: #111b2e;
+    --surface-raised: #17243a;
+    --border: rgba(148, 163, 184, 0.16);
+    --border-strong: rgba(148, 163, 184, 0.28);
+    --text-primary: #f3f6fc;
+    --text-secondary: #a4b1c5;
+    --text-muted: #74839a;
+    --accent: #79aaff;
+    --accent-bright: #9bc2ff;
+    --accent-violet: #a78bfa;
+    --success: #6ee7b7;
+    --disabled: #52627a;
+    --radius-large: 22px;
+    --radius-medium: 15px;
+    --radius-small: 11px;
+    --content-width: 1120px;
+    --shadow-soft: 0 18px 55px rgba(0, 0, 0, 0.24);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-primary);
+    background:
+        radial-gradient(ellipse at 50% -18%, rgba(72, 108, 190, 0.20), transparent 42%),
+        radial-gradient(ellipse at 100% 48%, rgba(124, 88, 210, 0.08), transparent 34%),
+        var(--background);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-primary);
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.3;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+a:hover {
+    color: var(--accent-bright);
+}
+
+button, textarea {
+    font: inherit;
+}
+
+::selection {
+    color: #07101e;
+    background: var(--accent-bright);
+}
+
+section {
+    scroll-margin-top: 88px;
+}
+
+/* Navigation */
+
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(8, 13, 24, 0.82);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.top-bar-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 17px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--text-primary);
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+.site-name::before {
+    content: "✳";
+    display: grid;
+    place-items: center;
+    width: 31px;
+    height: 31px;
+    border: 1px solid rgba(121, 170, 255, 0.35);
+    border-radius: 10px;
+    color: var(--accent-bright);
+    background: rgba(121, 170, 255, 0.10);
+    font-size: 17px;
+}
+
+.site-name:hover {
+    color: var(--accent-bright);
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.navigation-link {
+    padding: 8px 14px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.navigation-link:hover {
+    color: var(--text-primary);
+    background: rgba(148, 163, 184, 0.08);
+    border-color: var(--border);
+}
+
+/* Shared section styles */
+
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 18px;
+    color: var(--accent-bright);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-label::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 13px rgba(110, 231, 183, 0.75);
+}
+
+.section-heading {
+    font-size: clamp(29px, 4vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1.4px;
+}
+
+.ask-container,
+.topics-container,
+.about-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+/* Ask section */
+
+.ask-section {
+    position: relative;
+    padding: 112px 0 125px;
+    border-bottom: 1px solid var(--border);
+}
+
+.ask-section::before {
+    content: "";
+    position: absolute;
+    top: 58px;
+    left: 50%;
+    width: min(680px, 85vw);
+    height: 390px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: radial-gradient(ellipse, rgba(79, 124, 219, 0.15), transparent 68%);
+    filter: blur(18px);
+}
+
+.ask-container {
+    position: relative;
+    max-width: 850px;
+}
+
+.ask-intro {
+    margin-bottom: 43px;
+    text-align: center;
+}
+
+.main-heading {
+    max-width: 760px;
+    margin: 0 auto 20px;
+    font-size: clamp(40px, 6.2vw, 66px);
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1.09;
+    background: linear-gradient(110deg, #ffffff 12%, #c9dcff 56%, #a99aff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.intro-description {
+    max-width: 590px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.tutor-interface {
+    width: 100%;
+    padding: 27px;
+    border: 1px solid rgba(145, 174, 225, 0.22);
+    border-radius: var(--radius-large);
+    background:
+        linear-gradient(145deg, rgba(26, 41, 66, 0.96), rgba(13, 22, 39, 0.97));
+    box-shadow: var(--shadow-soft), 0 0 55px rgba(73, 116, 204, 0.08);
+}
+
+.status-text {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 17px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-text::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 12px rgba(110, 231, 183, 0.6);
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.question-input {
+    display: block;
+    width: 100%;
+    min-height: 126px;
+    padding: 19px 20px;
+    resize: vertical;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-medium);
+    outline: none;
+    background: rgba(5, 11, 22, 0.68);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.question-input::placeholder {
+    color: var(--text-muted);
+}
+
+.question-input:hover {
+    border-color: rgba(121, 170, 255, 0.42);
+}
+
+.question-input:focus {
+    border-color: var(--accent);
+    background: rgba(5, 11, 22, 0.9);
+    box-shadow: 0 0 0 4px rgba(121, 170, 255, 0.12);
+}
+
+.ask-button {
+    align-self: flex-end;
+    min-width: 125px;
+    padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 11px;
+    background: linear-gradient(110deg, #78aaff, #9b8af5);
+    color: #081120;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 7px 22px rgba(91, 126, 221, 0.22);
+    transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease, filter 180ms ease;
+}
+
+.ask-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 10px 27px rgba(91, 126, 221, 0.34);
+}
+
+.ask-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.ask-button:focus-visible,
+.navigation-link:focus-visible,
+.site-name:focus-visible {
+    outline: 3px solid rgba(155, 194, 255, 0.8);
+    outline-offset: 4px;
+}
+
+.ask-button:disabled {
+    opacity: 0.42;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.answer-box {
+    min-height: 180px;
+    margin-top: 24px;
+    padding: 23px 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-medium);
+    background: rgba(6, 13, 25, 0.62);
+    color: #dce7f7;
+    font-size: 15px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.answer-box:empty::before {
+    content: "Your answer will appear here...";
+    color: var(--text-muted);
+}
+
+/* Topics section */
+
+.topics-section {
+    padding: 108px 0 120px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(14, 23, 40, 0.34), transparent 30%);
+}
+
+.topics-intro {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.topics-description {
+    max-width: 610px;
+    margin: 15px auto 0;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+/* Statistics */
+
+.statistics-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 76px;
+}
+
+.statistic-card {
+    min-height: 112px;
+    padding: 19px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-medium);
+    background: linear-gradient(145deg, rgba(23, 36, 58, 0.88), rgba(13, 22, 38, 0.88));
+}
+
+.statistic-number {
+    color: var(--text-primary);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(25px, 3vw, 35px);
+    font-weight: 800;
+    letter-spacing: -1.3px;
+}
+
+.statistic-label {
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Science categories */
+
+.science-category {
+    margin-bottom: 58px;
+}
+
+.science-category:last-child {
+    margin-bottom: 0;
+}
+
+.science-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 21px;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
+
+.science-heading::before {
+    content: "";
+    width: 4px;
+    height: 25px;
+    border-radius: 5px;
+    background: var(--category-accent, var(--accent));
+    box-shadow: 0 0 15px color-mix(in srgb, var(--category-accent, var(--accent)) 40%, transparent);
+}
+
+.physics-category { --category-accent: #79aaff; }
+.chemistry-category { --category-accent: #c19aff; }
+.biology-category { --category-accent: #6ee7b7; }
+.earth-space-category { --category-accent: #f4bd75; }
+
+/* Topic cards */
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.topic-card {
+    position: relative;
+    min-height: 137px;
+    padding: 19px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 13px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-medium);
+    background: linear-gradient(145deg, rgba(20, 32, 52, 0.94), rgba(12, 21, 37, 0.96));
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+    transition: transform 190ms ease, border-color 190ms ease, background 190ms ease, box-shadow 190ms ease;
+}
+
+.topic-card::after {
+    content: "";
+    position: absolute;
+    top: -38px;
+    right: -38px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--category-accent, var(--accent));
+    opacity: 0.055;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.topic-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--category-accent, var(--accent)) 55%, transparent);
+    background: linear-gradient(145deg, rgba(27, 43, 68, 0.98), rgba(14, 24, 42, 0.98));
+    box-shadow: 0 12px 27px rgba(0, 0, 0, 0.22);
+}
+
+.topic-card h4 {
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.55;
+}
+
+.topic-question {
+    position: relative;
+    z-index: 1;
+    color: var(--category-accent, var(--accent-bright));
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+/* About section */
+
+.about-section {
+    padding: 108px 0 112px;
+}
+
+.about-intro {
+    margin-bottom: 47px;
+    text-align: center;
+}
+
+.about-description {
+    margin-top: 14px;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.step-card {
+    min-height: 175px;
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-medium);
+    background: linear-gradient(145deg, rgba(22, 35, 57, 0.92), rgba(12, 21, 37, 0.94));
+    transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.step-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(121, 170, 255, 0.42);
+}
+
+.step-number {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 32px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(121, 170, 255, 0.25);
+    border-radius: 9px;
+    background: rgba(121, 170, 255, 0.09);
+    color: var(--accent-bright);
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.step-heading {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.model-disclaimer {
+    max-width: 780px;
+    margin: 34px auto 0;
+    padding: 17px 21px;
+    border: 1px solid rgba(244, 189, 117, 0.20);
+    border-left: 3px solid #e8b66f;
+    border-radius: 0 var(--radius-small) var(--radius-small) 0;
+    background: rgba(244, 189, 117, 0.055);
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Footer */
+
+.footer {
+    border-top: 1px solid var(--border);
+    background: rgba(5, 10, 19, 0.82);
+}
+
+.footer-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 27px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+}
+
+.footer-credit,
+.footer-model {
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .topic-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .statistics-row {
+        gap: 11px;
+    }
+
+    .steps-container {
+        gap: 12px;
+    }
+
+    .step-card {
+        padding: 21px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    html {
+        scroll-padding-top: 74px;
+    }
+
+    section {
+        scroll-margin-top: 74px;
+    }
+
+    .top-bar-container {
+        padding: 13px 17px;
+    }
+
+    .site-name {
+        font-size: 17px;
+    }
+
+    .site-name::before {
+        width: 28px;
+        height: 28px;
+    }
+
+    .navigation {
+        gap: 2px;
+    }
+
+    .navigation-link {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    .ask-section,
+    .topics-section,
+    .about-section {
+        padding: 76px 0;
+    }
+
+    .ask-container,
+    .topics-container,
+    .about-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .ask-intro {
+        margin-bottom: 32px;
+    }
+
+    .main-heading {
+        font-size: clamp(37px, 10vw, 48px);
+        letter-spacing: -1.9px;
+    }
+
+    .intro-description {
+        font-size: 14px;
+    }
+
+    .section-heading {
+        font-size: 29px;
+        letter-spacing: -1px;
+    }
+
+    .tutor-interface {
+        padding: 18px;
+        border-radius: 17px;
+    }
+
+    .question-input {
+        min-height: 112px;
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .ask-button {
+        width: 100%;
+    }
+
+    .answer-box {
+        min-height: 150px;
+        padding: 17px;
+        font-size: 14px;
+    }
+
+    .topics-intro {
+        margin-bottom: 35px;
+    }
+
+    .topics-description {
+        font-size: 14px;
+    }
+
+    .statistics-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 57px;
+    }
+
+    .statistic-card {
+        min-height: 98px;
+        padding: 15px 8px;
+    }
+
+    .statistic-number {
+        font-size: 27px;
+    }
+
+    .statistic-label {
+        font-size: 10px;
+    }
+
+    .science-category {
+        margin-bottom: 43px;
+    }
+
+    .science-heading {
+        font-size: 19px;
+    }
+
+    .topic-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .topic-card {
+        min-height: 105px;
+        padding: 17px;
+    }
+
+    .steps-container {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .step-card {
+        min-height: 125px;
+        padding: 21px;
+    }
+
+    .step-number {
+        margin-bottom: 14px;
+    }
+
+    .model-disclaimer {
+        margin-top: 25px;
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    .footer-container {
+        padding: 23px 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .site-name {
+        font-size: 15px;
+    }
+
+    .navigation-link {
+        padding: 6px 7px;
+        font-size: 11px;
+    }
+
+    .main-heading {
+        font-size: 34px;
+    }
+
+    .statistic-number {
+        font-size: 24px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* =========================
+   EDUCATION-FIRST REFINEMENTS
+   A calmer, clearer learning experience
+   ========================= */
+
+:root {
+    --background: #0b1220;
+    --background-soft: #101b2c;
+    --surface: #142238;
+    --surface-solid: #142238;
+    --surface-raised: #1a2b43;
+    --border: rgba(166, 188, 220, 0.17);
+    --border-strong: rgba(166, 188, 220, 0.30);
+    --text-primary: #f4f7fc;
+    --text-secondary: #b5c2d4;
+    --text-muted: #8b9bb1;
+    --accent: #83b5ff;
+    --accent-bright: #a9ccff;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 50% -20%, rgba(67, 112, 183, 0.13), transparent 43%),
+        var(--background);
+    line-height: 1.75;
+}
+
+/* Keep the navigation simple and easy to scan */
+.top-bar {
+    background: rgba(11, 18, 32, 0.94);
+}
+
+.navigation-link {
+    font-size: 14px;
+    padding: 9px 15px;
+}
+
+/* More welcoming, less oversized introduction */
+.ask-section {
+    padding: 82px 0 92px;
+}
+
+.ask-intro {
+    margin-bottom: 34px;
+}
+
+.section-label {
+    margin-bottom: 13px;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+}
+
+.main-heading {
+    max-width: 720px;
+    font-size: clamp(36px, 5.2vw, 57px);
+    letter-spacing: -2px;
+    line-height: 1.16;
+    background: linear-gradient(110deg, #ffffff 20%, #c9ddfb 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.intro-description {
+    max-width: 650px;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* Make the tutor feel like a clear learning workspace */
+.tutor-interface {
+    padding: 29px;
+    border: 1px solid rgba(143, 181, 235, 0.27);
+    border-radius: 19px;
+    background: #142238;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.20);
+}
+
+.status-text {
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.question-container {
+    gap: 12px;
+}
+
+.question-input {
+    min-height: 116px;
+    padding: 18px 19px;
+    border-radius: 12px;
+    background: #0d1829;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.question-input::placeholder {
+    color: #91a2ba;
+}
+
+.ask-button {
+    min-width: 116px;
+    padding: 12px 23px;
+    border: 0;
+    border-radius: 10px;
+    background: #8bbaff;
+    color: #0b1728;
+    box-shadow: none;
+    font-size: 15px;
+}
+
+.ask-button:hover:not(:disabled) {
+    background: #a5caff;
+    box-shadow: 0 5px 16px rgba(94, 151, 230, 0.20);
+}
+
+.answer-box {
+    min-height: 165px;
+    margin-top: 21px;
+    padding: 22px 23px;
+    border: 1px solid rgba(166, 188, 220, 0.20);
+    border-radius: 12px;
+    background: #0e1a2b;
+    color: #e2eaf5;
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.answer-box:empty::before {
+    content: "Your explanation will appear here. Try asking a question to get started.";
+    color: #91a2ba;
+}
+
+/* Make the topic library read like organised learning content */
+.topics-section {
+    padding: 88px 0 96px;
+    background: #0e1929;
+}
+
+.topics-intro {
+    margin-bottom: 38px;
+}
+
+.section-heading {
+    font-size: clamp(28px, 3.6vw, 36px);
+    letter-spacing: -0.8px;
+}
+
+.topics-description {
+    max-width: 660px;
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Keep the project facts visible without letting them dominate */
+.statistics-row {
+    gap: 12px;
+    margin-bottom: 62px;
+}
+
+.statistic-card {
+    min-height: 100px;
+    border-radius: 12px;
+    border-color: var(--border);
+    background: #142238;
+}
+
+.statistic-number {
+    color: #c6dcff;
+    font-size: clamp(23px, 2.7vw, 31px);
+}
+
+.statistic-label {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.science-category {
+    margin-bottom: 48px;
+}
+
+.science-heading {
+    margin-bottom: 17px;
+    font-size: 21px;
+}
+
+/* Topic cards are calmer and more readable, like lesson cards */
+.topic-grid {
+    gap: 13px;
+}
+
+.topic-card {
+    min-height: 142px;
+    padding: 19px 18px;
+    border-radius: 12px;
+    border-color: rgba(166, 188, 220, 0.17);
+    background: #142238;
+    box-shadow: none;
+}
+
+.topic-card::after {
+    opacity: 0.035;
+}
+
+.topic-card:hover {
+    transform: translateY(-2px);
+    background: #1a2b43;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+.topic-card h4 {
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.topic-question {
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.physics-category { --category-accent: #8dbdff; }
+.chemistry-category { --category-accent: #c5a7ff; }
+.biology-category { --category-accent: #7cdbb4; }
+.earth-space-category { --category-accent: #f0c17f; }
+
+/* Explain the three steps in a more approachable way */
+.about-section {
+    padding: 88px 0 94px;
+}
+
+.about-intro {
+    margin-bottom: 37px;
+}
+
+.about-description {
+    max-width: 650px;
+    margin: 12px auto 0;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.step-card {
+    min-height: 165px;
+    padding: 23px;
+    border-radius: 12px;
+    background: #142238;
+    box-shadow: none;
+}
+
+.step-number {
+    background: rgba(131, 181, 255, 0.12);
+}
+
+.step-heading {
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.model-disclaimer {
+    font-size: 14px;
+    background: rgba(240, 193, 127, 0.07);
+}
+
+.footer {
+    background: #09111e;
+}
+
+/* Improve spacing and reading comfort on smaller screens */
+@media (max-width: 700px) {
+    .ask-section,
+    .topics-section,
+    .about-section {
+        padding-top: 65px;
+        padding-bottom: 70px;
+    }
+
+    .main-heading {
+        font-size: clamp(34px, 9vw, 46px);
+        letter-spacing: -1.5px;
+    }
+
+    .intro-description,
+    .topics-description,
+    .about-description {
+        font-size: 15px;
+    }
+
+    .tutor-interface {
+        padding: 19px;
+    }
+
+    .topic-card {
+        min-height: 112px;
+    }
+
+    .statistics-row {
+        margin-bottom: 48px;
+    }
+}
